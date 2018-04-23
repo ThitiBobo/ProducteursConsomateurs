@@ -83,6 +83,15 @@ public class Panier : Storable {
         this(id,capacity,0)
     {}
 
+    public Panier(Panier copy)
+    {
+        if (copy == null)
+            throw new ArgumentNullException("l'arguments passé ne peux pas être null", "copy");
+        _id = copy._id;
+        _capacity = copy._capacity;
+        _nbObject = copy._nbObject;
+    }
+
     #endregion
 
     /// <summary>
