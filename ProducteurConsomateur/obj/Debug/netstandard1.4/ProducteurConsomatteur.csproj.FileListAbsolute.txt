@@ -1,0 +1,7 @@
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.4\ProducteurConsomatteur.deps.json
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.4\ProducteurConsomatteur.dll
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.4\ProducteurConsomatteur.pdb
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.4\ProducteurConsomatteur.csprojResolveAssemblyReference.cache
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.4\ProducteurConsomatteur.AssemblyInfo.cs
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.4\ProducteurConsomatteur.dll
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.4\ProducteurConsomatteur.pdb

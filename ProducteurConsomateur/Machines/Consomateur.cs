@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-/**
- * 
- */
-public class Consomateur : Machine {
+namespace ProducteurConsomatteur
+{
+    public class Consomateur : Machine {
 
-    /**
-     * 
-     */
-    public Consomateur() {
+        private Panier Input;
+
+        protected override void OnExecute()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Consomateur() : base(3,3,3)
+        {
+
+        }
     }
-
-    /**
-     * 
-     */
-    private Panier Input;
-
 }

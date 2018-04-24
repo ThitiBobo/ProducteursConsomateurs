@@ -1,0 +1,6 @@
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.6\ProducteurConsomateur.deps.json
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.6\ProducteurConsomateur.AssemblyInfo.cs
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.6\ProducteurConsomateur.dll
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\netstandard1.6\ProducteurConsomateur.pdb
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.6\ProducteurConsomateur.dll
+C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\netstandard1.6\ProducteurConsomateur.pdb

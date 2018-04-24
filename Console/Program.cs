@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using ProducteurConsomatteur;
+using System.Threading;
+
+
 
 namespace Console
 {
@@ -10,7 +10,16 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            
+            Producteur tt = new Producteur(3, 3, 30);
+
+            tt.Start();
+
+            Thread.Sleep(5000);
+
+            tt.Stop();
+
         }
+
+
     }
 }
