@@ -47,6 +47,13 @@ namespace ProducteurConsomatteur
             throw new NotImplementedException();
         }
 
+        protected override bool IsReady()
+        {
+            if (_input == null)
+                return false;
+            return true;
+        }
+
 
     }
 }

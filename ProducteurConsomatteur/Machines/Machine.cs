@@ -56,6 +56,8 @@ namespace ProducteurConsomatteur
 
         public void Start()
         {
+            if (!IsReady())
+                throw new NotReadyException("la machine ne peut pas démarrer dans cet état");
             _inProgess = true;
             _thread.Start();
         }
@@ -95,5 +97,6 @@ namespace ProducteurConsomatteur
         }
 
         protected abstract void OnExecute();
+        protected abstract bool IsReady();
     }
 }
