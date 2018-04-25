@@ -3,48 +3,56 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace ProducteurConsomatteur
 {
     public abstract class Machine {
 
-    
+
+        #region STATICS ATTRIBUTS
+        Random RANDOM = new Random();
+        #endregion
+
         #region ATTRIBUTS
-        protected int id;
+        protected int _id;
 
-        protected ulong minTime;
+        protected uint _minTime;
 
-        protected ulong maxTime;
+        protected uint _maxTime;
 
-        protected Task _thread;
+        protected Thread _thread;
 
         protected bool _inProgess;
         #endregion
 
         #region GETSET
-        public int Id { get => id; set => id = value; }
-        public ulong MinTime { get => minTime; set => minTime = value; }
-        public ulong MaxTime { get => maxTime; set => maxTime = value; }
+        public int Id { get => _id; set => _id = value; }
+        public uint MinTime { get => _minTime; set => _minTime = value; }
+        public uint MaxTime { get => _maxTime; set => _maxTime = value; }
         #endregion
 
         #region CONSTRUCTORS
-        public Machine(int id, ulong minTime, ulong maxTime)
+        public Machine(int id, uint minTime, uint maxTime)
         {
             Id = id;
             MinTime = minTime;
             MaxTime = maxTime;
-            _thread = new Task(Execute);
+            _thread = new Thread(Execute);
             _inProgess = false;
 
         }
+
+        public Machine(int id, uint time):
+            this(id, time, time)
+        {}
 
         public Machine(Machine copy)
         {
             if (copy == null)
                 throw new ArgumentNullException("l'arguments passé ne peux pas être null", "copy");
-            _thread = new Task(Execute);
+            _thread = new Thread(Execute);
             _inProgess = false;
         }
         #endregion
@@ -82,6 +90,11 @@ namespace ProducteurConsomatteur
             {
                 OnExecute();
             }
+        }
+
+        private void Work()
+        {
+            Thread.Sleep(RANDOM.Next((int)_minTime, (int)_maxTime));
         }
 
         protected abstract void OnExecute();
