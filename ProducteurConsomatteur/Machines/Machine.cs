@@ -1,8 +1,5 @@
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 
@@ -70,12 +67,12 @@ namespace ProducteurConsomatteur
 
         public void Pause()
         {
-            //_thread.Suspend();
+            _thread.Suspend(); //comme dit V.S "obolète" mais c'est pas grave
         }
 
         public void Resume()
         {
-            //_thread.Resume();
+            _thread.Resume(); //comme dit V.S "obolète" mais c'est pas grave
         }
 
         public void Restart()
