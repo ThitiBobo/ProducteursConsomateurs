@@ -1,4 +1,5 @@
 ﻿
+using System;
 using ProducteurConsomatteur;
 using System.Threading;
 
@@ -10,13 +11,20 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            Producteur tt = new Producteur(3, 3, 30);
+            Storable storage = new Panier(001, 10, 5);
 
-            tt.Start();
+            Producteur prod = new Producteur(021, 1000, 2000, storage);
+            Consomateur cons = new Consomateur(031, 5000, 10000, storage);
 
-            Thread.Sleep(5000);
+            prod.Start();
+            cons.Start();
 
-            tt.Stop();
+            while (true)
+            {
+                Thread.Sleep(2000);
+                System.Console.WriteLine(storage.Count());
+            }
+
 
         }
 

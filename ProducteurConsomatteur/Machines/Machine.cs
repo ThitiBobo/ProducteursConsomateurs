@@ -91,7 +91,7 @@ namespace ProducteurConsomatteur
             }
         }
 
-        private void Work()
+        protected void Work()
         {
             Thread.Sleep(RANDOM.Next((int)_minTime, (int)_maxTime));
         }

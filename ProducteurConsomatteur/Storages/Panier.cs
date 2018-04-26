@@ -1,10 +1,13 @@
 
 using System;
+using System.Threading;
 
 namespace ProducteurConsomatteur
 {
     /// <summary>
     /// Représente une instance pouvant contenir, ajouter ou retirer des objets dans un stokage limité.
+    /// L'Ajout et le Retrait ne peuvent être éxècutés que par une seule instance extérieur à la fois,
+    /// les deux méthodes sont controlées par une instance <c>Semaphore</c>
     /// Implémente l'interface Storable ainsi que toutes ses méthodes.
     /// </summary>
     public class Panier : Storable
@@ -25,6 +28,8 @@ namespace ProducteurConsomatteur
         /// Nombre d'objet contenu par l'intance <c>Panier</c> 
         /// </summary>
         protected uint _nbObject;
+
+        protected Mutex _accessStorage;
         #endregion
 
         #region GETSET
@@ -76,7 +81,7 @@ namespace ProducteurConsomatteur
             _id = id;
             Capacity = capacity;
             NbObject = nbObject;
-
+            _accessStorage = new Mutex();
         }
 
         /// <summary>
@@ -100,6 +105,8 @@ namespace ProducteurConsomatteur
             _id = copy._id;
             _capacity = copy._capacity;
             _nbObject = copy._nbObject;
+            _accessStorage = new Mutex();
+
         }
 
         #endregion
@@ -111,9 +118,11 @@ namespace ProducteurConsomatteur
         /// <exception cref="AddObjectException"
         public void Add()
         {
+            _accessStorage.WaitOne();
             if (_nbObject >= Capacity)
                 throw new AddObjectException("Impossible d'ajouter un objet, la capacité a déja était atteinte");
             _nbObject++;
+            _accessStorage.ReleaseMutex();
         }
 
         /// <summary>
@@ -123,9 +132,11 @@ namespace ProducteurConsomatteur
         /// <exception cref="TakeObjectException"
         public void Take()
         {
+            _accessStorage.WaitOne();
             if (_nbObject <= 0)
                 throw new TakeObjectException("Impossible, il n'y à plus d'objet à enlever dans le stokage");
             _nbObject--;
+            _accessStorage.ReleaseMutex();
         }
 
         /// <summary>

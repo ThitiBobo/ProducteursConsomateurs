@@ -4,5 +4,5 @@ C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteu
 C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\Console\obj\Debug\Console.csprojResolveAssemblyReference.cache
 C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\Console\obj\Debug\Console.exe
 C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\Console\obj\Debug\Console.pdb
-C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ProducteurConsomatteur.dll
-C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ProducteurConsomatteur.pdb
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.dll
+C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.pdb

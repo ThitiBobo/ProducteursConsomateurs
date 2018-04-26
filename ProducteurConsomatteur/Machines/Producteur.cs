@@ -10,23 +10,52 @@ namespace ProducteurConsomatteur
     public class Producteur : Machine
     {
 
-        private Panier Output;
+        #region ATTRIBUTS
+        private Storable _output;
+        #endregion
 
-        public Producteur(int id, ulong minTime, ulong maxTime) :
+        #region GETSET
+        public Storable Output {
+            get => _output;
+            set => _output = value ??
+                throw new ArgumentNullException("le paramètre ne peux pas être null", "output");
+        }
+        #endregion
+
+        #region CONSTRUCTORS
+        public Producteur(int id, uint minTime, uint maxTime, Storable output) :
             base(id, minTime, maxTime)
         {
-
+            Output = output;
         }
 
-        public Producteur(Machine copy) : base(copy)
+        public Producteur(int id, uint time, Storable output) :
+            base(id, time)
         {
+            Output = output; 
         }
+
+        public Producteur(Producteur copy) : base(copy)
+        {
+            _output = copy._output;
+        }
+        #endregion
+
 
         protected override void OnExecute()
         {
-            Console.WriteLine("coucou");
+            Work();
+            Console.WriteLine("début dépot machine " + _id);
+            _output.Add();
+            Console.WriteLine("fin dépot machine " + _id);
         }
 
+        protected override bool IsReady()
+        {
+            if (_output == null)
+                return false;
+            return true;
+        }
     }
 }
 

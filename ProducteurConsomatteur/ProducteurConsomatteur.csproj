@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddObjectException.cs" />
-    <Compile Include="Consomateur.cs" />
-    <Compile Include="Machine.cs" />
-    <Compile Include="Panier.cs" />
-    <Compile Include="Producteur.cs" />
-    <Compile Include="ProducteurConsomateur.cs" />
+    <Compile Include="Exceptions\AddObjectException.cs" />
+    <Compile Include="Exceptions\NotReadyException.cs" />
+    <Compile Include="Machines\Consomateur.cs" />
+    <Compile Include="Machines\Machine.cs" />
+    <Compile Include="Storages\Panier.cs" />
+    <Compile Include="Machines\Producteur.cs" />
+    <Compile Include="Machines\ProducteurConsomateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storable.cs" />
-    <Compile Include="TakeObjectException.cs" />
+    <Compile Include="Interfaces\Storable.cs" />
+    <Compile Include="Exceptions\TakeObjectException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
