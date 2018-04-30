@@ -6,6 +6,10 @@ namespace ProducteurConsomatteur
     /// </summary>
     public interface Storable {
 
+        /// <summary>
+        /// Permet d'obtenir le nom/identifiant du storage
+        /// </summary>
+        /// <returns>retourne le nom sous de string</returns>
         string GetName();
 
         /// <summary>
@@ -14,7 +18,7 @@ namespace ProducteurConsomatteur
         void Add();
 
         /// <summary>
-        /// permet de retirer un objet dans le stokage
+        /// Permet de retirer un objet dans le stokage
         /// </summary>
         void Take();
 
@@ -24,6 +28,10 @@ namespace ProducteurConsomatteur
         /// <returns>retourne un int</returns>
         int Count();
 
+        /// <summary>
+        /// Retourne le capacité maximal du storage
+        /// </summary>
+        /// <returns>retourne la capacité sous forme de int</returns>
         int GetCapacity();
 
     }	 
