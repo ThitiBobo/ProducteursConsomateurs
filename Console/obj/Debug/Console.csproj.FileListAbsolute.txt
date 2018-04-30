@@ -6,3 +6,11 @@ C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteu
 C:\Users\Delplanque\documents\visual studio 2017\Projects\ProducteursConsomatteurs\Console\obj\Debug\Console.pdb
 C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.dll
 C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.pdb
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\bin\Debug\Console.exe.config
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\bin\Debug\Console.exe
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\bin\Debug\Console.pdb
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.dll
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\bin\Debug\ClassLibrary2.pdb
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\obj\Debug\Console.csprojResolveAssemblyReference.cache
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\obj\Debug\Console.exe
+D:\Documents\Travail\C#\ProducteursConsomatteurs\Console\obj\Debug\Console.pdb

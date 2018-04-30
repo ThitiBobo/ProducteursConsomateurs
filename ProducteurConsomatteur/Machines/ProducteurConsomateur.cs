@@ -54,7 +54,11 @@ namespace ProducteurConsomatteur
 
         protected override void OnExecute()
         {
-            throw new NotImplementedException();
+            _input.Take();
+            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, ((Panier)_input).Id, ((Panier)_input).Count());
+            Work();
+            _output.Add();
+            Console.WriteLine("Machine {0}: dépot pièce P{1} ({2})", _id, ((Panier)_output).Id, ((Panier)_output).Count());
         }
 
         protected override bool IsReady()

@@ -1,8 +1,5 @@
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProducteurConsomatteur
 {
@@ -42,9 +39,8 @@ namespace ProducteurConsomatteur
         
         protected override void OnExecute()
         {
-            Console.WriteLine("début prise machine " + _id);
             _input.Take();
-            Console.WriteLine("fin prise machine " + _id);
+            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, ((Panier)_input).Id, ((Panier)_input).Count());
             Work();
         }
 
