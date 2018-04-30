@@ -55,10 +55,10 @@ namespace ProducteurConsomatteur
         protected override void OnExecute()
         {
             _input.Take();
-            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, ((Panier)_input).Id, ((Panier)_input).Count());
+            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, _input.GetName(), _input.Count());
             Work();
             _output.Add();
-            Console.WriteLine("Machine {0}: dépot pièce P{1} ({2})", _id, ((Panier)_output).Id, ((Panier)_output).Count());
+            Console.WriteLine("Machine {0}: dépot pièce P{1} ({2})", _id, _output.GetName(), _output.Count());
         }
 
         protected override bool IsReady()

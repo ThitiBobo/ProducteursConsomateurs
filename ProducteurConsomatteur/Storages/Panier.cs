@@ -28,8 +28,7 @@ namespace ProducteurConsomatteur
         /// Nombre d'objet contenu par l'intance <c>Panier</c> 
         /// </summary>
         protected uint _nbObject;
-
-        protected Mutex _accessStorage;
+        
         #endregion
 
         #region GETSET
@@ -81,7 +80,7 @@ namespace ProducteurConsomatteur
             _id = id;
             Capacity = capacity;
             NbObject = nbObject;
-            _accessStorage = new Mutex();
+            
         }
 
         /// <summary>
@@ -104,12 +103,15 @@ namespace ProducteurConsomatteur
                 throw new ArgumentNullException("l'arguments passé ne peux pas être null", "copy");
             _id = copy._id;
             _capacity = copy._capacity;
-            _nbObject = copy._nbObject;
-            _accessStorage = new Mutex();
-
+            _nbObject = copy._nbObject;       
         }
 
         #endregion
+
+        public string GetName()
+        {
+            return Id.ToString();
+        }
 
         /// <summary>
         /// Permet d'ajouter un objet dans le stokage de l'intance <c>Panier</c> 
@@ -118,11 +120,20 @@ namespace ProducteurConsomatteur
         /// <exception cref="AddObjectException"
         public void Add()
         {
-            _accessStorage.WaitOne();
-            if (_nbObject >= Capacity)
-                throw new AddObjectException("Impossible d'ajouter un objet, la capacité a déja était atteinte");
-            _nbObject++;
-            _accessStorage.ReleaseMutex();
+            lock (this)
+            {
+                if (_nbObject >= Capacity)
+                {
+                    Console.WriteLine("panier P{1} plein", _id, GetName());
+                    Monitor.Wait(this);
+                }
+                    
+                _nbObject++;
+
+                Monitor.Pulse(this);
+            }
+            
+            
         }
 
         /// <summary>
@@ -132,11 +143,19 @@ namespace ProducteurConsomatteur
         /// <exception cref="TakeObjectException"
         public void Take()
         {
-            _accessStorage.WaitOne();
-            if (_nbObject <= 0)
-                throw new TakeObjectException("Impossible, il n'y à plus d'objet à enlever dans le stokage");
-            _nbObject--;
-            _accessStorage.ReleaseMutex();
+            
+            lock (this)
+            {
+                if (_nbObject <= 0)
+                {
+                    Console.WriteLine("panier P{1} vide", _id, GetName());
+                    Monitor.Wait(this);
+                }
+                _nbObject--;
+                Monitor.Pulse(this);
+            }
+            
+            
         }
 
         /// <summary>
@@ -146,6 +165,11 @@ namespace ProducteurConsomatteur
         public int Count()
         {
             return (int)_nbObject;
+        }
+
+        public int GetCapacity()
+        {
+            return (int)_capacity;
         }
 
         /// <summary>

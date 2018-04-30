@@ -46,7 +46,7 @@ namespace ProducteurConsomatteur
         {
             Work();
             _output.Add();
-            Console.WriteLine("Machine {0}: dépot pièce P{1} ({2})", _id, ((Panier)_output).Id, ((Panier)_output).Count());
+            Console.WriteLine("Machine {0}: dépot pièce P{1} ({2})", _id, _output.GetName(), _output.Count());
         }
 
         protected override bool IsReady()

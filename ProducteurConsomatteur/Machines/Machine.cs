@@ -85,15 +85,22 @@ namespace ProducteurConsomatteur
 
         private void Execute()
         {
+            Console.WriteLine("Machine {0}: START", Id);
             while (_inProgess)
             {
                 OnExecute();
             }
+            Console.WriteLine("Machine {0}: STOP", Id);
         }
 
         protected void Work()
         {
             Thread.Sleep(RANDOM.Next((int)_minTime, (int)_maxTime));
+        }
+
+        public void Join()
+        {
+            _thread.Join();
         }
 
         protected abstract void OnExecute();

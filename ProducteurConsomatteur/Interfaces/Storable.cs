@@ -6,6 +6,8 @@ namespace ProducteurConsomatteur
     /// </summary>
     public interface Storable {
 
+        string GetName();
+
         /// <summary>
         /// Permet d'ajouter un ojbet dans le stokage
         /// </summary>
@@ -21,6 +23,8 @@ namespace ProducteurConsomatteur
         /// </summary>
         /// <returns>retourne un int</returns>
         int Count();
+
+        int GetCapacity();
 
     }	 
 }   

@@ -11,7 +11,9 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            Exemple1.Execute(2000);
+            Exemple1.Execute(50000);
+            System.Console.WriteLine("[ END ]");
+            System.Console.ReadKey();
         }
 
 

@@ -40,7 +40,7 @@ namespace ProducteurConsomatteur
         protected override void OnExecute()
         {
             _input.Take();
-            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, ((Panier)_input).Id, ((Panier)_input).Count());
+            Console.WriteLine("Machine {0}: prise pièce P{1} ({2})", _id, _input.GetName(), _input.Count());
             Work();
         }
 
