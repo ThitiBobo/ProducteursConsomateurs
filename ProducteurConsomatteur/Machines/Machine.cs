@@ -7,7 +7,7 @@ namespace ProducteurConsomatteur
 {
     /// <summary>
     /// Représente une instance abstraite pouvant fabriquer des objets de façon fictive avec
-    /// un temps de fabrication compris entre deux intervalles.
+    /// un temps de fabrication compris dans une intervalle.
     /// L'instance est modélisé par un thread. 
     /// </summary>
     public abstract class Machine {
