@@ -62,12 +62,7 @@ namespace ProducteurConsomatteur
         public uint MinTime
         {
             get => _minTime;
-            set
-            {
-                if (value > _maxTime)
-                    throw new ArgumentException("l'argument ne peux pas être supérieur à maxTime","minTime");
-                _minTime = value;
-            }
+            set =>_minTime = value;    
         }
 
         /// <summary>
@@ -76,12 +71,7 @@ namespace ProducteurConsomatteur
         public uint MaxTime
         {
             get => _maxTime;
-            set
-            {
-                if (value < _minTime)
-                    throw new ArgumentException("l'argument ne peux pas être inférieur à minTime", "maxTime");
-                _maxTime = value;
-            }
+            set =>_maxTime = value;    
         }
         #endregion
 
