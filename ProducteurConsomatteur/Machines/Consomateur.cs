@@ -31,7 +31,7 @@ namespace ProducteurConsomatteur
 
         #region CONSTRUCTORS
         /// <summary>
-        /// Permet de créer une nouvelle instance en précissant l'idantifiant, le temps minimum 
+        /// Permet de créer une nouvelle instance en précisant l'idantifiant, le temps minimum 
         /// et maximum de fabrication ainsi que le stokage d'entrée 
         /// </summary>
         /// <param name="id">Identifiant de l'instance</param>
@@ -44,18 +44,33 @@ namespace ProducteurConsomatteur
             Input = input;
         }
 
+        /// <summary>
+        /// Permet de créer une nouvelle instance en précisant l'identifiant, le temp de fabrication
+        /// et le stokage d'entrée
+        /// </summary>
+        /// <param name="id">Identifiant de l'instance</param>
+        /// <param name="time">Temps de fabrication</param>
+        /// <param name="input">Stokage d'entrée</param>
+        /// <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
+        /// / minTime = maxTime </remarks>
         public Consomateur(int id, uint time, Storable input) : base(id,time)
         {
             Input = input;
         }
 
+        /// <summary>
+        /// Permet de créer une nouvelle instance à partir d'une instance déjà existante
+        /// </summary>
+        /// <param name="copy">Instance à recopier</param>
         public Consomateur(Consomateur copy) : base(copy)
         {
             _input = copy._input;
         }
         #endregion
 
-        
+        /// <summary>
+        /// méthode contenant le protocole de fabrication de la machine
+        /// </summary>
         protected override void OnExecute()
         {
             _input.Take();
@@ -63,8 +78,14 @@ namespace ProducteurConsomatteur
             Work();
         }
 
+        /// <summary>
+        /// Permet de vérifier si la machine est intégre avant le démarage
+        /// </summary>
+        /// <returns>retourne <c>true</c> si l'instance est intégre, sinon <c>false</c>.</returns>
         protected override bool IsReady()
         {
+            if (_minTime > _maxTime)
+                return false;
             if (_input == null)
                 return false;
             return true;
