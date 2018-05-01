@@ -41,7 +41,7 @@ namespace ProducteurConsomatteur
         /// <param name="id">Identifiant de l'instance</param>
         /// <param name="minTime">Temps minimum de fabrication</param>
         /// <param name="maxTime">Temps maximum de fabrication</param>
-        /// <param name="input">Stokage de sortie</param>
+        /// <param name="output">Stokage de sortie</param>
         public Producteur(int id, uint minTime, uint maxTime, Storable output) :
             base(id, minTime, maxTime)
         {
@@ -54,7 +54,7 @@ namespace ProducteurConsomatteur
         /// </summary>
         /// <param name="id">Identifiant de l'instance</param>
         /// <param name="time">Temps de fabrication</param>
-        /// <param name="input">Stokage de sortie</param>
+        /// <param name="output">Stokage de sortie</param>
         /// <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
         /// / minTime = maxTime </remarks>
         public Producteur(int id, uint time, Storable output) :
