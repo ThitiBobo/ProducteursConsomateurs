@@ -2,7 +2,7 @@
 using System;
 using System.Threading;
 
-namespace ProducteurConsomatteur
+namespace ProducteurConsomateur
 {
     /// <summary>
     /// Représente une instance pouvant contenir, ajouter ou retirer des objets dans un stokage limité.

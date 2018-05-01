@@ -1,5 +1,5 @@
 
-namespace ProducteurConsomatteur
+namespace ProducteurConsomateur
 {
 	/// <summary>
     /// Représente un objet pouvant contenir, ajouter ou retirer des objets dans un stokage 

@@ -1,6 +1,6 @@
 ﻿
 using System;
-using ProducteurConsomatteur;
+using ProducteurConsomateur;
 using System.Threading;
 
 

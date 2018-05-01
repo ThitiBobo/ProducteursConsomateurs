@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 
 
-namespace ProducteurConsomatteur
+namespace ProducteurConsomateur
 {
     /// <summary>
     /// Représente une instance abstraite pouvant fabriquer des objets de façon fictive avec

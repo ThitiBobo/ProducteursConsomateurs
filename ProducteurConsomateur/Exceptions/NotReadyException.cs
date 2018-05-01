@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProducteurConsomatteur
+namespace ProducteurConsomateur
 {
     class NotReadyException : Exception
     {
