@@ -91,6 +91,5 @@ namespace ProducteurConsomatteur
             return true;
         }
 
-
     }
 }
