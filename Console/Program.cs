@@ -11,7 +11,8 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            Exemple1.Execute(50000);
+            Exemple1.Execute(6000);
+            System.Console.ForegroundColor = ConsoleColor.Red;
             System.Console.WriteLine("[ END ]");
             System.Console.ReadKey();
         }
