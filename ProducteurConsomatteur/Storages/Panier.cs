@@ -108,6 +108,10 @@ namespace ProducteurConsomatteur
 
         #endregion
 
+        /// <summary>
+        /// Permet d'obtnier l'identifiant de l'instance
+        /// </summary>
+        /// <returns>retourne l'id sous forme de string</returns>
         public string GetName()
         {
             return Id.ToString();
@@ -127,9 +131,7 @@ namespace ProducteurConsomatteur
                     Console.WriteLine("panier P{1} plein", _id, GetName());
                     Monitor.Wait(this);
                 }
-                    
                 _nbObject++;
-
                 Monitor.Pulse(this);
             }
             
@@ -167,6 +169,10 @@ namespace ProducteurConsomatteur
             return (int)_nbObject;
         }
 
+        /// <summary>
+        /// Permet d'obtenir la capacité maximal du stokage
+        /// </summary>
+        /// <returns>retourne la capacité du stokage</returns>
         public int GetCapacity()
         {
             return (int)_capacity;
