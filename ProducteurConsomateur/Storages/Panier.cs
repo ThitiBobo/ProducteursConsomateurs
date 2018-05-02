@@ -126,7 +126,7 @@ namespace ProducteurConsomateur
         {
             lock (this)
             {
-                if (_nbObject >= Capacity)
+                if (IsFull())
                 {
                     Console.WriteLine("panier P{1} plein", _id, GetName());
                     Monitor.Wait(this);
@@ -148,7 +148,7 @@ namespace ProducteurConsomateur
             
             lock (this)
             {
-                if (_nbObject <= 0)
+                if (IsEmpty())
                 {
                     Console.WriteLine("panier P{1} vide", _id, GetName());
                     Monitor.Wait(this);

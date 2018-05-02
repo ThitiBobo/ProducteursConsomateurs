@@ -8,3 +8,8 @@ C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteu
 C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ProducteurConsomateur.csprojResolveAssemblyReference.cache
 C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ClassLibrary2.dll
 C:\Users\Delplanque\Documents\Visual Studio 2017\Projects\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ClassLibrary2.pdb
+D:\Documents\Travail\C#\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\ClassLibrary2.dll
+D:\Documents\Travail\C#\ProducteursConsomatteurs\ProducteurConsomateur\bin\Debug\ClassLibrary2.pdb
+D:\Documents\Travail\C#\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ProducteurConsomateur.csprojResolveAssemblyReference.cache
+D:\Documents\Travail\C#\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ClassLibrary2.dll
+D:\Documents\Travail\C#\ProducteursConsomatteurs\ProducteurConsomateur\obj\Debug\ClassLibrary2.pdb
