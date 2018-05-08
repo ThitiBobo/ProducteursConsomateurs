@@ -17,7 +17,7 @@ namespace ProducteurConsomateur
         /// <summary>
         /// instance de générateur aléatoire
         /// </summary>
-        Random RANDOM = new Random();
+        protected static Random RANDOM = new Random();
         #endregion
 
         #region ATTRIBUTS

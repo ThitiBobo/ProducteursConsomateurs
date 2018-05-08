@@ -9,9 +9,14 @@ namespace Console
 {
     class Program
     {
+        public const int SECONDE = 1000;
+        public const int MINUTE = 60 * SECONDE;
+
         static void Main(string[] args)
         {
-            Exemple1.Execute(6000);
+            Exemple1.Execute(10 * MINUTE);
+
+
             System.Console.ForegroundColor = ConsoleColor.Red;
             System.Console.WriteLine("[ END ]");
             System.Console.ReadKey();
