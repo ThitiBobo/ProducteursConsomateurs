@@ -121,7 +121,7 @@ namespace ProducteurConsomateur
         /// Permet de démarer l'instance <c>Machine</c> ou retourne une exception
         /// si la machine n'est pas bien configurée
         /// </summary>
-        /// <exception cref="NotReadyException"
+        /// <exception cref="NotReadyException">La machine n'est pas bien configurée.</exception>
         public void Start()
         {
             if (!IsReady())
@@ -142,7 +142,7 @@ namespace ProducteurConsomateur
         /// Permet de redémarer l'instance <c>Machine</c> ou retourne une exception
         /// si la machine n'est pas bien configurée
         /// </summary>
-        /// <exception cref="NotReadyException"
+        /// <exception cref="NotReadyException">La machine n'est pas bien configurée</exception>
         public void Restart()
         {
             Stop();

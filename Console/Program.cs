@@ -14,13 +14,8 @@ namespace Console
 
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-            Exemple1.Execute(10 * MINUTE);
+            Exemple1.Execute(30 * MINUTE);
 
-
-=======
-            Exemple1.Execute(60000);
->>>>>>> 8b20e0e39078be71826c2e2ab7e3a642c76d335f
             System.Console.ForegroundColor = ConsoleColor.Red;
             System.Console.WriteLine("[ END ]");
             System.Console.ReadKey();

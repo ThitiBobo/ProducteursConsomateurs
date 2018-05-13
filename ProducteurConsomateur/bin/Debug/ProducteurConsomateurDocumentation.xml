@@ -1,0 +1,454 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClassLibrary2</name>
+    </assembly>
+    <members>
+        <member name="T:ProducteurConsomateur.Consomateur">
+            <summary>
+            Représente une instance dérivant de la classe <c>Machine</c> pouvant prendre un objet 
+            en entrée dans une instance implémentant l'interface Storable.
+            Et consomme l'objet avec un temps compris dans une intervalle.
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Consomateur._input">
+            <summary>
+            Instance de type <c>Storable</c> utilisé comme entrée
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Consomateur.Input">
+            <summary>
+            Permet de modifier le Stokage d'entrée
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Consomateur.#ctor(System.Int32,System.UInt32,System.UInt32,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'idantifiant, le temps minimum 
+            et maximum de fabrication ainsi que le stokage d'entrée 
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="minTime">Temps minimum de fabrication</param>
+            <param name="maxTime">Temps maximum de fabrication</param>
+            <param name="input">Stokage d'entrée</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Consomateur.#ctor(System.Int32,System.UInt32,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'identifiant, le temp de fabrication
+            et le stokage d'entrée
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="time">Temps de fabrication</param>
+            <param name="input">Stokage d'entrée</param>
+            <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
+            / minTime = maxTime </remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Consomateur.#ctor(ProducteurConsomateur.Consomateur)">
+            <summary>
+            Permet de créer une nouvelle instance à partir d'une instance déjà existante
+            </summary>
+            <param name="copy">Instance à recopier</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Consomateur.OnExecute">
+            <summary>
+            méthode contenant le protocole de fabrication de la machine
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Consomateur.IsReady">
+            <summary>
+            Permet de vérifier si la machine est intégre avant le démarage
+            </summary>
+            <returns>retourne <c>true</c> si l'instance est intégre, sinon <c>false</c>.</returns>
+        </member>
+        <member name="T:ProducteurConsomateur.Machine">
+            <summary>
+            Représente une instance abstraite pouvant fabriquer des objets de façon fictive avec
+            un temps de fabrication compris dans une intervalle.
+            L'instance est modélisée par un thread. 
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine.RANDOM">
+            <summary>
+            instance de générateur aléatoire
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine._id">
+            <summary>
+            identifiant de l'instance
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine._minTime">
+            <summary>
+            intervalle inférieur du temps de fabrication
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine._maxTime">
+            <summary>
+            intervalle supérieur du temps de fabrication
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine._thread">
+            <summary>
+            instance de Thread 
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Machine._inProgess">
+            <summary>
+            Etat de la machine 
+            true = la machine marche 
+            false = la machine est arrêtée
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Machine.Id">
+            <summary>
+            Permet de modifier l'identifiant de l'instance
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Machine.MinTime">
+            <summary>
+            Permet de modifier l'intrvalle inférieur du temps de fabrication
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Machine.MaxTime">
+            <summary>
+            Permet de modifier l'intervalle supérieur du temps de fabrication
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.#ctor(System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'identifiant, et l'intervalle pour le
+            temps de fabrication : le temps minimum et le temps maximum
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="minTime">Temps minimum de fabrication</param>
+            <param name="maxTime">Temps maximum de fabrication</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.#ctor(System.Int32,System.UInt32)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'identifiant et le
+            temps de fabrication 
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="time">Temps de fabrication</param>
+            <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
+            / minTime = maxTime </remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.#ctor(ProducteurConsomateur.Machine)">
+            <summary>
+            Permet de créer une nouvelle instance en recopiant une instance déjà éxistante
+            </summary>
+            <param name="copy">instance à recopier</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Start">
+            <summary>
+            Permet de démarer l'instance <c>Machine</c> ou retourne une exception
+            si la machine n'est pas bien configurée
+            </summary>
+            <exception cref="T:ProducteurConsomateur.NotReadyException">La machine n'est pas bien configurée.</exception>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Stop">
+            <summary>
+            Permet d'arreter l'instance <c>Machine</c>
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Restart">
+            <summary>
+            Permet de redémarer l'instance <c>Machine</c> ou retourne une exception
+            si la machine n'est pas bien configurée
+            </summary>
+            <exception cref="T:ProducteurConsomateur.NotReadyException">La machine n'est pas bien configurée</exception>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Execute">
+            <summary>
+            Méthode principale éxecutée par le thread de l'instance 
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Work">
+            <summary>
+            Méthode simulant le temps de fabrication pour l'instance <c>Machine</c>
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.Join">
+            <summary>
+            Permet d'attendre le thread de l'instance
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.OnExecute">
+            <summary>
+            méthode abstraite contenant tout le protocole de fabrication de la machine.
+            Le protocole peux varier selon les classes dérivées.
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Machine.IsReady">
+            <summary>
+            méthode abstraite vérifiant si l'instance est intégre pour démarrer.
+            La vérifiacation peux varier selon les classes dérivées.
+            </summary>
+            <returns>Retourne <c>true</c> si l'instance est intégre, sinon <c>false</c>.</returns>
+        </member>
+        <member name="T:ProducteurConsomateur.Panier">
+            <summary>
+            Représente une instance pouvant contenir, ajouter ou retirer des objets dans un stokage limité.
+            L'Ajout et le Retrait ne peuvent être éxècutés que par une seule instance extérieur à la fois,
+            les deux méthodes sont controlées par une instance <c>Semaphore</c>
+            Implémente l'interface Storable ainsi que toutes ses méthodes.
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Panier._id">
+            <summary>
+            Identifiant de l'intance <c>Panier</c>
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Panier._capacity">
+            <summary>
+            Capcaité maximum de l'intance <c>Panier</c>
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Panier._nbObject">
+            <summary>
+            Nombre d'objet contenu par l'intance <c>Panier</c> 
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Panier.Id">
+            <summary>
+            Permet de modifier l'id de l'intance
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Panier.Capacity">
+            <summary>
+            Permet de modifier la capacité de l'intance
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Panier.NbObject">
+            <summary>
+            Permet de modifier le nombre d'objets contenu par l'intance
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.#ctor(System.Int32,System.UInt32,System.UInt32)">
+            <summary>
+            Permet de créer une nouvelle intance de <c>Panier</c> en précisant son id,
+            sa capacitée et son nombre d'objet au début. 
+            </summary>
+            <param name="id">Identifiant de l'intance</param>
+            <param name="capacity">Nombre d'objet maximum que peux contenir l'instance</param>
+            <param name="nbObject">Nombre d'objet contenue par l'instance au début</param>
+            <remarks><c>nbObject</c> doit etre inférieur ou égal à <c>capacity</c> </remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.#ctor(System.Int32,System.UInt32)">
+            <summary>
+            Permet de créer une nouvelle intance de <c>Panier</c> en précisant son id et
+            sa capacitée.
+            </summary>
+            <param name="id">Identifiant de l'intance</param>
+            <param name="capacity">Nombre d'objet maximum que peux contenir l'instance</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.#ctor(ProducteurConsomateur.Panier)">
+            <summary>
+            Permet de créer une nouvelle intance de <c>Panier</c> à partir d'une copie
+            </summary>
+            <param name="copy">instance de type <c>Panier</c> à recopier</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.GetName">
+            <summary>
+            Permet d'obtnier l'identifiant de l'instance
+            </summary>
+            <returns>retourne l'id sous forme de string</returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.Add">
+            <summary>
+            Permet d'ajouter un objet dans le stokage de l'intance <c>Panier</c> 
+            </summary>
+            <remarks>Retourne une exception si la capacité a déja était atteinte</remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.Take">
+            <summary>
+            Permet de prendre un objet dans le stokage de l'intance <c>Panier</c> 
+            </summary>
+            <remarks>Retourne une exception si il n'y à plus d'objet</remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.Count">
+            <summary>
+            Permet de connaitre le nombre d'objet contenu dans le stokage de l'instance
+            </summary>
+            <returns>Retourne le nombre d'objet</returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.GetCapacity">
+            <summary>
+            Permet d'obtenir la capacité maximal du stokage
+            </summary>
+            <returns>retourne la capacité du stokage</returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.Clean">
+            <summary>
+            Vide le stokage de l'intance
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.IsEmpty">
+            <summary>
+            Permet de savoir si le stokage est vide
+            </summary>
+            <returns>retourne <c>true</c> si le stokage est vide, sinon <c>false</c></returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Panier.IsFull">
+            <summary>
+            Permet de savoir si le stokage est plein
+            </summary>
+            <returns>retourne <c>true</c> si le stokage est plein, sinon <c>false</c></returns>
+        </member>
+        <member name="T:ProducteurConsomateur.Producteur">
+            <summary>
+            Représente une instance dérivant de la classe <c>Machine</c> pouvant 
+            fabriquer un objet avec un temps de fabrication comprit dans une intervalle
+            et le déposer en sortie dans une instance implémentant l'interface Storable.
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.Producteur._output">
+            <summary>
+            Instance de type <c>Storable</c> utilisé comme sortie
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.Producteur.Output">
+            <summary>
+            Permet de modifier le Stockage de sortie
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Producteur.#ctor(System.Int32,System.UInt32,System.UInt32,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'idantifiant, le temps minimum 
+            et maximum de fabrication ainsi que le stokage de sorite 
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="minTime">Temps minimum de fabrication</param>
+            <param name="maxTime">Temps maximum de fabrication</param>
+            <param name="output">Stokage de sortie</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Producteur.#ctor(System.Int32,System.UInt32,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'identifiant, le temp de fabrication
+            et le stokage de sortie
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="time">Temps de fabrication</param>
+            <param name="output">Stokage de sortie</param>
+            <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
+            / minTime = maxTime </remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.Producteur.#ctor(ProducteurConsomateur.Producteur)">
+            <summary>
+            Permet de créer une nouvelle instance à partir d'une instance déjà existante
+            </summary>
+            <param name="copy">Instance à recopier</param>
+        </member>
+        <member name="M:ProducteurConsomateur.Producteur.OnExecute">
+            <summary>
+            méthode contenant le protocole de fabrication de la machine
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Producteur.IsReady">
+            <summary>
+            Permet de vérifier si la machine est intégre avant le démarage
+            </summary>
+            <returns>retourne <c>true</c> si l'instance est intégre, sinon <c>false</c>.</returns>
+        </member>
+        <member name="T:ProducteurConsomateur.ProducteurConsomateur">
+            <summary>
+            Représente une instance dérivant de la classe <c>Machine</c> 
+            pouvant prendre un objet en entrée dans une instance implémentant l'interface Storable.
+            Fabriquer un objet avec un temps de fabrication comprit dans une intervalle
+            et le déposer en sortie dans une instance implémentant l'interface Storable.
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.ProducteurConsomateur._input">
+            <summary>
+            Instance de type <c>Storable</c> utilisé comme entrée
+            </summary>
+        </member>
+        <member name="F:ProducteurConsomateur.ProducteurConsomateur._output">
+            <summary>
+            Instance de type <c>Storable</c> utilisé comme sortie
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.ProducteurConsomateur.Input">
+            <summary>
+            Permet de modifier le Stokage d'entrée
+            </summary>
+        </member>
+        <member name="P:ProducteurConsomateur.ProducteurConsomateur.Output">
+            <summary>
+            Permet de modifier le Stockage de sortie
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.ProducteurConsomateur.#ctor(System.Int32,System.UInt32,System.UInt32,ProducteurConsomateur.Storable,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'idantifiant, le temps minimum 
+            et maximum de fabrication ainsi que le stockage d'entrée et le stockage de sortie 
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="minTime">Temps minimum de fabrication</param>
+            <param name="maxTime">Temps maximum de fabrication</param>
+            <param name="input">Stockage d'entrée</param>
+            <param name="output">Stockage de sortie</param>
+        </member>
+        <member name="M:ProducteurConsomateur.ProducteurConsomateur.#ctor(System.Int32,System.UInt32,ProducteurConsomateur.Storable,ProducteurConsomateur.Storable)">
+            <summary>
+            Permet de créer une nouvelle instance en précisant l'identifiant, le temp de fabrication,
+            le stockage d'entrée et le stockage de sortie
+            </summary>
+            <param name="id">Identifiant de l'instance</param>
+            <param name="time">Temps de fabrication</param>
+            <param name="input">Stockage d'entrée</param>
+            <param name="output">Stockage de sortie</param>
+            <remarks>Temps de fabrication est comprise dans l'intervalle [minTime; maxTime] 
+            / minTime = maxTime </remarks>
+        </member>
+        <member name="M:ProducteurConsomateur.ProducteurConsomateur.#ctor(ProducteurConsomateur.ProducteurConsomateur)">
+            <summary>
+            Permet de créer une nouvelle instance à partir d'une instance déjà existante
+            </summary>
+            <param name="copy">Instance à recopier</param>
+        </member>
+        <member name="M:ProducteurConsomateur.ProducteurConsomateur.OnExecute">
+            <summary>
+            méthode contenant le protocole de fabrication de la machine
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.ProducteurConsomateur.IsReady">
+            <summary>
+            Permet de vérifier si la machine est intégre avant le démarage
+            </summary>
+            <returns>retourne <c>true</c> si l'instance est intégre, sinon <c>false</c>.</returns>
+        </member>
+        <member name="T:ProducteurConsomateur.Storable">
+            <summary>
+            Représente un objet pouvant contenir, ajouter ou retirer des objets dans un stockage 
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Storable.GetName">
+            <summary>
+            Permet d'obtenir le nom/identifiant du stockage
+            </summary>
+            <returns>retourne le nom sous forme de string</returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Storable.Add">
+            <summary>
+            Permet d'ajouter un objet dans le stockage
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Storable.Take">
+            <summary>
+            Permet de retirer un objet dans le stockage
+            </summary>
+        </member>
+        <member name="M:ProducteurConsomateur.Storable.Count">
+            <summary>
+            Retourne le nombre d'objet contenu dans le stockage
+            </summary>
+            <returns>retourne un int</returns>
+        </member>
+        <member name="M:ProducteurConsomateur.Storable.GetCapacity">
+            <summary>
+            Retourne le capacité maximal du stockage
+            </summary>
+            <returns>retourne la capacité sous forme de int</returns>
+        </member>
+    </members>
+</doc>

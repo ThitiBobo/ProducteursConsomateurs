@@ -74,7 +74,6 @@ namespace ProducteurConsomateur
         /// <param name="capacity">Nombre d'objet maximum que peux contenir l'instance</param>
         /// <param name="nbObject">Nombre d'objet contenue par l'instance au début</param>
         /// <remarks><c>nbObject</c> doit etre inférieur ou égal à <c>capacity</c> </remarks>
-        /// <exception cref="ArgumentOutOfRangeException"
         public Panier(int id, uint capacity, uint nbObject)
         {
             _id = id;
@@ -121,7 +120,6 @@ namespace ProducteurConsomateur
         /// Permet d'ajouter un objet dans le stokage de l'intance <c>Panier</c> 
         /// </summary>
         /// <remarks>Retourne une exception si la capacité a déja était atteinte</remarks>
-        /// <exception cref="AddObjectException"
         public void Add()
         {
             lock (this)
@@ -142,7 +140,6 @@ namespace ProducteurConsomateur
         /// Permet de prendre un objet dans le stokage de l'intance <c>Panier</c> 
         /// </summary>
         /// <remarks>Retourne une exception si il n'y à plus d'objet</remarks>
-        /// <exception cref="TakeObjectException"
         public void Take()
         {
             
@@ -178,9 +175,7 @@ namespace ProducteurConsomateur
             return (int)_capacity;
         }
 
-        /// <summary>
-        /// Vide le stokage de l'intance
-        /// </summary>
+        /// <summary>   Vide le stokage de l'intance. </summary>
         public void Clean()
         {
             _nbObject = 0;
